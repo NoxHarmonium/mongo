@@ -2,6 +2,11 @@ FROM phusion/baseimage:0.9.17
 
 MAINTAINER Sean Dawson <contact@seandawson.info>
 
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
+WORKDIR ~/
+
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
